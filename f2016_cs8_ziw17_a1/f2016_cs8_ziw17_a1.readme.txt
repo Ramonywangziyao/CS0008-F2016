@@ -1,0 +1,10 @@
+I used one function to compute the result and print
+
+also an array to contain the conversion in order to simplify the process by using the index user typed.
+
+it reads the system input first, there is a while loop. if not equals to the index requires, it will repeat asking.
+
+then ask the distance and gasoline used
+
+
+and print the result
