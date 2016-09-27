@@ -1,12 +1,6 @@
 unitConversion = [1.60934,3.78541,0.621371,0.264172]
 
 def consumpCompute(distanceX,gasolineX,distanceY,gasolineY,index):
-    miles = None
-    gallons = None
-    kilo = None
-    lit = None
-    mpg = None
-    lpk = None
     if index == 0:
         miles = distanceX
         gallons = gasolineX
@@ -42,20 +36,18 @@ def consumpCompute(distanceX,gasolineX,distanceY,gasolineY,index):
     print("Consumption_____:          ",format(mpg,".3f")," mpg       ", format(lpk,".3f"), " 1/100Km")
     print("\n")
     print("Gas Consumption Rating :  ",state)
+    quit = input("\n\nType enter to exit")
     return
 
-systemChoice = None
+systemChoice = input("What system do you wanna use? Type 0 for USC , 2 for Metric\n")
+systemChoice = int(systemChoice)
 while systemChoice != 0 and systemChoice != 2:
+    print("Retry. Must type 0 or 2")
     systemChoice = input("What system do you wanna use? Type 0 for USC , 2 for Metric\n")
     systemChoice = int(systemChoice)
-    if systemChoice != 0 and systemChoice != 2:
-        print("Retry. Must type 0 or 2")
-
-
 distanceDriven = input("How much distance have you drived?(in the unit system you selected)\n")
 gasAmount = input("How much gasoline have you used?(in the unit system you selected)\n")
 distanceDriven = float(distanceDriven)
 gasAmount = float(gasAmount)
 altUnitData = [distanceDriven * unitConversion[systemChoice],gasAmount * unitConversion[systemChoice+1]]
 consumpCompute(distanceDriven,gasAmount,altUnitData[0],altUnitData[1],systemChoice)
-
