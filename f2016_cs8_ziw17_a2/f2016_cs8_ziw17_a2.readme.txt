@@ -1,0 +1,19 @@
+used three functions:
+
+ProcessFile()
+printKV()
+nameRequest()
+
+nameRequest is a callback to processfile which returns the name of the file user typed as the parameter to processfile in order
+to open the file
+Also File not exist is detected
+
+
+printkv simply use format() to format different values. If ifelse considered as the functionality of switch
+
+There is no specific value in the code but only variables.
+All the length of different variables (key, value, decimal places) can be modified through those variables at the top of the program
+so the program is not hardcoded except the arraylength(Because the purpose of this program is only for such file contents X:X)
+Also to prevent the accidental modification of array length of any array objects, there is detection for the dismatch so it won't crush
+the program
+

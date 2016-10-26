@@ -1,0 +1,27 @@
+Please type the file name
+(User Type: f2016_cs8_a2.data.1.csv)
+f2016_cs8_a2.data.1.csv
+File to be read          :f2016_cs8_a2.data.1.csv
+Partial Total # of lines :50
+Partial distance run     :2298.967
+
+Please type the file name
+(User Type: f2016_cs8_a2.data.2.csv)
+f2016_cs8_a2.data.2.csv
+File to be read          :f2016_cs8_a2.data.2.csv
+Partial Total # of lines :50
+Partial distance run     :2195.061
+
+
+Please type the file name
+(User Type: q or quit)
+q
+File to be read          :quit
+
+Totals
+Total # of lines         :100
+Total distance run       :4494.027
+
+Exiting in 10 seconds
+
+(Program will close in 10 seconds)
