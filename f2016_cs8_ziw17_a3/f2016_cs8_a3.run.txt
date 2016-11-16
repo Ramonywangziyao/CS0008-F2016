@@ -1,0 +1,31 @@
+/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5 /Users/ziyaowang/GitHub/CS0008-F2016/f2016_cs8_ziw17_a3/f2016_cs8_a3.py
+File to be read               :f2016_cs8_a3.data.txt                   
+
+File to be read               :f2016_cs8_a3.data.3.csv                 
+
+File to be read               :f2016_cs8_a3.data.2.csv                 
+
+File to be read               :f2016_cs8_a3.data.1.csv                 
+
+
+Number of Input Files read:3                                       
+
+Total # of lines read         :450                                     
+
+Total distance run            :23222.95595                             
+
+Max distance run              :205.82148                               
+
+by participant                :Glynis                                  
+
+Min distance run              :0.05789                                 
+
+by participant                :Alex                                    
+
+Total Number of participants  :388                                     
+
+Number of participants
+with multiple records         :60                                      
+
+
+Process finished with exit code 0

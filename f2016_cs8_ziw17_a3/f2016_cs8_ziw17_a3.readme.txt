@@ -1,0 +1,14 @@
+used multiple functions for different task.
+retrieve file names from .txt
+read through each file, and append contents to global value.
+
+overall, based on project 2, and modified it on that
+
+used dictionary to store all the participants,
+
+when encounter the same person, update the value
+
+also, max and min are stored globally
+
+and if > or <, it will update the max or min.
+
