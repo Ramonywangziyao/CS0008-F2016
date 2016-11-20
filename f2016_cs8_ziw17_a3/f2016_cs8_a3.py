@@ -12,6 +12,7 @@ Thanks for using.
 """
 import sys
 import time
+import subprocess
 #***modify the lengths here for all specifications***
 kLen = 30   #key length
 strLen = 40        #value length as string
@@ -29,6 +30,7 @@ endWords = ["Total # of lines","Total distance run"]        #store the words as 
 globalData = [0,0]          #global values for the total lines and distance
 fileNameList = []
 totalFileRead = 0
+result = []
 #file processer
 def processFile(fh):
     try:
@@ -127,6 +129,12 @@ while(len(fileNameList)>0):
    processFile(fileNameList.pop())      #call the nameRequest as a callback
 printResult()
 
+
+writeFile = open("result.txt","w")
+for item,value in participantList.items():
+    writeFile.write(str(item)+","+str(value[0])+"\n")
+
+writeFile.close()
 
 
 #----------------------------end execution-----------------------------#
