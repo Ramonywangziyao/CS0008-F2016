@@ -130,9 +130,9 @@ while(len(fileNameList)>0):
 printResult()
 
 
-writeFile = open("result.txt","w")
+writeFile = open("f2016_cs8_ziw17.output.csv","w")
 for item,value in participantList.items():
-    writeFile.write(str(item)+","+str(value[0])+"\n")
+    writeFile.write(str(item)+","+str(value[1]+1)+","+str(value[0])+"\n")
 
 writeFile.close()
 
