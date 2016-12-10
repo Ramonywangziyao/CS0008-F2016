@@ -1,0 +1,48 @@
+used multiple functions for different task.
+retrieve file names from .txt
+read through each file, and append contents to global value.
+
+overall, based on project 3, and modified it on that
+
+used participant object to store all the participants individual information
+update and retrieve via method, get / set
+
+store all objects in a list
+
+when encounter the same person, update the value by call addDistance() method
+
+also, max and min are stored globally
+
+and if > or <, it will update the max or min.
+
+
+****I do not know why the TA said I have logic error.
+Firstly, those functions are designed in a good way that they can not only be applied here
+but can be used mostly genericly with other same data/objects/data structure 
+They are not hard coded, and each function is not lengthy
+
+They are not redundant. You do not want to make a function 100 lines of code
+or put different functionalities into one function, that is not right.
+
+My functions do the exactly simple work as its name describes. simplified the code, easier for debug and reuse.
+
+
+For example:
+I separated fileretrieve and processFile to 2 functions:
+1.what if there is no such a master file containing filenames, you can just call processFile with one filename.
+2.This is the right thing to do.
+
+Honestly, I have never heard something like logic error often and because of that I lose points. Every program is designed by different people
+follows a certain way,If the functions can represent their functionality, code is simple and easy to understand, reuse and efficient, 
+it should be in a good shape. 
+If logic is really wrong, or there is a logic error, the program should not produce the correct result or there will be errors or exceptions,
+but none of these situations happens on my code
+
+Thank you.
+
+Ziyao Wang
+
+
+
+
+

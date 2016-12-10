@@ -121,7 +121,6 @@ def printKV(key,value,klen=0):
         fmtValue = "{:<{length}}".format(value, length=intLen)
     elif isinstance(value, float):
         fmtValue = "{:<{length}.{deciLen}f}".format(value, length=floatLen,deciLen = decimalLen)
-
     fmtLine = fmtKey+":"+fmtValue
     print(fmtLine+"\n")
     return
