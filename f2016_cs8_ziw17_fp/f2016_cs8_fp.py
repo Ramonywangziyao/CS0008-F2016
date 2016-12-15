@@ -34,7 +34,7 @@ class Participants():
     def _str_(self):
         namefmt = "{:>{length}}".format(self.name,length = 20)
         distancefmt = "{:>{length}.{deciLen}f}".format(self.distance, length=4,deciLen = 4)
-        runsfmt = "{:<{length}}".format(self.runs, length=4)
+        runsfmt = "{:>{length}}".format(self.runs, length=4)
         return "Name : "+namefmt+". Distance run : "+distancefmt+". Runs : "+runsfmt
 
     def getName(self):
@@ -56,33 +56,36 @@ class Participants():
 totalMultRecord = 0
 maxRun = None
 minRun = None
-partialWords = ["Total # of lines read","Total distance run"]   #store the words as arr
-endWords = ["Total # of lines","Total distance run"]        #store the words as arr
-globalData = [0,0]          #global values for the total lines and distance
+#store the words as arr
+partialWords = ["Total # of lines read","Total distance run"]
+#store the words as arr
+endWords = ["Total # of lines","Total distance run"]
 fileNameList = []
-totalLines = 0
 totalFileRead = 0
-totalDistanceRun = 0.0
 participantArr = []
+totalData = [0,0]
 
 #file processer
 def processFile(fh):
-    global totalLines,totalDistanceRun
+    totalLines = 0
+    totalDistanceRun = 0.0
     try:
         with open(fh,'r') as openfileobject:
             printKV("File to be read",fh,kLen)
-            for line in openfileobject:         #loop through file
+            # loop through file
+            for line in openfileobject:
                 if(line.split(",")[0] != "name"):
                     arr = line.split(",")
                     arr[1] = arr[1].rstrip('\n')
-                    globalData[0]+=1
-                    globalData[1]+= float(arr[1])
+                    totalLines+=1
+                    totalDistanceRun+= float(arr[1])
                     updateMaxMin(updateList(arr))
             openfileobject.close()
-    except IOError:     #file not exist
+            # file not exist
+    except IOError:
         print("File does not exist. Re-enter!\n")
         return None
-    return
+    return totalLines,totalDistanceRun
 
 def updateList(arr):
     global totalMultRecord
@@ -114,7 +117,8 @@ def updateMaxMin(participant):
 def printKV(key,value,klen=0):
     maxLen = max(len(key),klen)
     fmtKey = "{:<{length}}".format(key,length=maxLen)
-    fmtValue = 0        #initialize
+    # initialize
+    fmtValue = 0
     if isinstance(value,str):
         fmtValue = "{:<{length}}".format(value,length = strLen)
     elif isinstance(value,int):
@@ -131,18 +135,20 @@ def fileRetrieve():
     try:
         with open(masterFileName, 'r') as openfileobject:
             printKV("File to be read", masterFileName, kLen)
-            for line in openfileobject:  # loop through file
+            # loop through file
+            for line in openfileobject:
                 fileNameList.append(line.rstrip("\n"))
             openfileobject.close()
-    except IOError:  # file not exist
+            # file not exist
+    except IOError:
         print("File does not exist. Re-enter!\n")
         return None
 
 #print the final result
-def printResult():
+def printResult(data):
     printKV("\nNumber of Input Files read", totalFileRead)
-    for index in range(0, len(globalData)):
-        printKV(partialWords[index], globalData[index], kLen)
+    for index in range(0, len(totalData)):
+        printKV(partialWords[index], data[index], kLen)
     printKV("Max distance run",maxRun.getDistance(),kLen)
     printKV("by participant",maxRun.getName(),kLen)
     printKV("Min distance run",minRun.getDistance(),kLen)
@@ -153,15 +159,19 @@ def printResult():
 
 #--------------------------main execution-----------------------------#
 #specification error detected. Array length does not match each other
-if (len(globalData) + len(partialWords) + len(endWords))/3 != len(globalData):
+if (len(totalData) + len(partialWords) + len(endWords))/3 != len(totalData):
     print("Specification error. Array length does not match each other. Please modify the code. Exit")
     sys.exit(0)
 
 fileRetrieve()
 while(len(fileNameList)>0):
    totalFileRead += 1
-   processFile(fileNameList.pop())      #call the nameRequest as a callback
-printResult()
+   # call the nameRequest as a callback
+   numData = processFile(fileNameList.pop())
+   for index in range(0,len(totalData)):
+       totalData[index]+=numData[index]
+
+printResult(totalData)
 
 
 writeFile = open("f2016_cs8_ziw17_fp.output.csv","w")
