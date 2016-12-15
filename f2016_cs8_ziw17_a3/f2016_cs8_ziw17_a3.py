@@ -1,3 +1,9 @@
+#
+# MN: requested header missing
+#
+# Notes:
+# MN: AVOID GLOBALS at all costs!!!
+
 """
 This program is created by Ziyao Wang copyright 2016
 only for CS0008 class use
@@ -31,6 +37,7 @@ globalData = [0,0]          #global values for the total lines and distance
 fileNameList = []
 totalFileRead = 0
 result = []
+
 #file processer
 def processFile(fh):
     try:
@@ -48,6 +55,7 @@ def processFile(fh):
         return None
     return
 
+# MN: description of the function?
 def updateList(arr):
     global totalMultRecord
     if len(participantList) > 0:
